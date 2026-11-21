@@ -1,0 +1,15 @@
+schema_version = "1.0.0"
+
+id = "atelier_link"
+version = "1.0.0"
+name = "Atelier Link"
+tagline = "Live preview of your meshes in Roblox Studio"
+maintainer = "Sovereign3D"
+type = "add-on"
+
+blender_version_min = "4.2.0"
+
+license = ["SPDX:GPL-3.0-or-later"]
+
+[permissions]
+network = "Studio link on 127.0.0.1; Roblox body files from Roblox"
