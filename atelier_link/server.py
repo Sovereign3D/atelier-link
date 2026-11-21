@@ -31,6 +31,19 @@ class _Store:
         with self.lock:
             return time.monotonic() < self.locked_until
 
+    def check_code(self, supplied, pair_code):
+        """Lock check, comparison and wrong-code count in one step, so parallel guesses can't slip past the lock."""
+        with self.lock:
+            if time.monotonic() < self.locked_until:
+                return "locked"
+            if hmac.compare_digest(supplied.encode("utf-8"), pair_code.encode("utf-8")):
+                return "ok"
+            self.wrong_codes += 1
+            if self.wrong_codes % MAX_WRONG_CODES == 0:
+                rounds = self.wrong_codes // MAX_WRONG_CODES
+                self.locked_until = time.monotonic() + LOCK_SECONDS * (2 ** (rounds - 1))
+            return "bad"
+
     def record_wrong_code(self):
         with self.lock:
             self.wrong_codes += 1
@@ -95,11 +108,17 @@ def _make_handler(store, pair_code, port):
         def do_GET(self):
             if self.headers.get("Host", "") not in allowed_hosts:
                 return self._send(403, {"error": "host"})
-            if store.is_locked():
-                return self._send(429, {"error": "locked"})
+            # Studio never sends Origin or Sec-Fetch-*; a web page in a browser does. Refuse those without counting
+            # them, so a website can't lock Studio out by sending wrong codes.
+            if self.headers.get("Origin") or self.headers.get("Sec-Fetch-Site"):
+                return self._send(403, {"error": "browser"})
             supplied = self.headers.get("X-Atelier-Pair", "")
-            if not hmac.compare_digest(supplied.encode("utf-8"), pair_code.encode("utf-8")):
-                store.record_wrong_code()
+            if not supplied:
+                return self._send(401, {"error": "pair"})
+            verdict = store.check_code(supplied, pair_code)
+            if verdict == "locked":
+                return self._send(429, {"error": "locked"})
+            if verdict != "ok":
                 return self._send(401, {"error": "pair"})
 
             url = urlparse(self.path)

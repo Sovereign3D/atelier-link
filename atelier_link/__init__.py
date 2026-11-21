@@ -4,7 +4,7 @@
 bl_info = {
     "name": "Atelier Link",
     "author": "Sovereign3D",
-    "version": (1, 0, 0),
+    "version": (1, 0, 1),
     "blender": (2, 93, 0),
     "location": "3D View > Sidebar (N) > Atelier",
     "description": "Live preview of your meshes in Roblox Studio with the Atelier plugin",

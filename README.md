@@ -200,6 +200,8 @@ tells you what's wrong before you pay, shows you where on the item, and tells yo
 
 ## Changelog
 
+**1.0.1**: safer link. Web pages in a browser can't lock Studio out, and parallel wrong codes can't get past the lockout.
+
 **1.0.0**: first release. Live Link with textures, Spawn Kit, installs on Blender 2.93 and newer.
 
 ## Licence

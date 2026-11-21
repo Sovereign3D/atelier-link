@@ -1,7 +1,7 @@
 schema_version = "1.0.0"
 
 id = "atelier_link"
-version = "1.0.0"
+version = "1.0.1"
 name = "Atelier Link"
 tagline = "Live preview of your meshes in Roblox Studio"
 maintainer = "Sovereign3D"
