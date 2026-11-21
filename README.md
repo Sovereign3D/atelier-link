@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/simonrocksonsantiago/atelier-link/releases/latest"><b>Download Atelier Link for Blender</b></a>
+  <a href="https://github.com/Sovereign3D/atelier-link/releases/latest"><b>Download Atelier Link for Blender</b></a>
   &nbsp;·&nbsp;
   <a href="https://create.roblox.com/store/asset/115510141417079"><b>Get Atelier for Roblox Studio</b></a>
 </p>
@@ -56,7 +56,7 @@ Thumbnail work in Studio on their own.
 
 ## Install the Blender add-on
 
-1. Open the [latest release](https://github.com/simonrocksonsantiago/atelier-link/releases/latest) and download
+1. Open the [latest release](https://github.com/Sovereign3D/atelier-link/releases/latest) and download
    `atelier_link-x.x.x.zip`. **Don't unzip it.**
 2. Install it in Blender:
 
