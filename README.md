@@ -10,7 +10,7 @@
 <p align="center">
   <a href="https://github.com/simonrocksonsantiago/atelier-link/releases/latest"><b>Download Atelier Link for Blender</b></a>
   &nbsp;·&nbsp;
-  <a href="#get-atelier-for-roblox-studio"><b>Get Atelier for Roblox Studio</b></a>
+  <a href="https://create.roblox.com/store/asset/115510141417079"><b>Get Atelier for Roblox Studio</b></a>
 </p>
 
 ---
@@ -73,7 +73,7 @@ Uninstall (or Remove).
 
 ## Get Atelier for Roblox Studio
 
-Atelier is on the Roblox Creator Store: **link coming soon**.
+Atelier is on the Roblox Creator Store: **[get Atelier](https://create.roblox.com/store/asset/115510141417079)**.
 
 1. Open the Atelier page on the Creator Store and click **Get**.
 2. In Studio open the **Plugins** tab. The Atelier button is on the toolbar. Click it to open the panel.
